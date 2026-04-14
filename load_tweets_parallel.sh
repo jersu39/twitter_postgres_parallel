@@ -12,10 +12,10 @@ echo '==========================================================================
 echo 'load pg_normalized'
 echo '================================================================================'
 # FIXME: implement this with GNU parallel
-time echo "$files" | parallel python3 load_tweets.py --db="postgresql://postgres:pass@localhost:3932/postgres" --inputs={}
+time echo "$files" | parallel python3 load_tweets.py --db="postgresql://postgres:pass@localhost:3932/postgres" --inputs "$file"
 
 echo '================================================================================'
 echo 'load pg_normalized_batch'
 echo '================================================================================'
 # FIXME: implement this with GNU parallel
-time echo "$files" | parallel python3 -u load_tweets_batch.py --db="postgresql://postgres:pass@localhost:3933/postgres" --inputs={}
+time echo "$files" | parallel python3 load_tweets_batch.py --db="postgresql://postgres:pass@localhost:3933/postgres" --inputs "$file"
